@@ -7,13 +7,13 @@
           <img class="hidden lg:block h-8 w-auto" src="https://placehold.co/600x400" alt="DocSecuHubs">
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-          <a *ngIf="userService.isUserLogged()" routerLink="/user" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a *ngIf="userService.isUserLogged()" routerLink="/user" class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" id="dashboard">
             Dashboard
           </a>
-          <a *ngIf="userService.isUserLogged()" routerLink="/user/documents" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a *ngIf="userService.isUserLogged()" routerLink="/user/documents" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" id="documents">
             Gestion des Documents
           </a>
-          <a *ngIf="!userService.isUserLogged()" routerLink="" class="border-indigo-500 text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a *ngIf="!userService.isUserLogged()" routerLink="" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" id="home">
             Accueil
           </a>
         </div>
