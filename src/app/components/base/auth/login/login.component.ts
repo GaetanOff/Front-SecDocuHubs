@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {routes} from "../../../../app.routes";
+import {Component} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 
 @Component({
@@ -12,7 +11,8 @@ import {Router, RouterLink} from "@angular/router";
 })
 export class LoginComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   async processForm(): Promise<void> {
     await this.router.navigate(['/auth/2fa']);

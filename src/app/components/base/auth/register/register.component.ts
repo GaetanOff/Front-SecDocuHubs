@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,7 +9,8 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   async processForm(): Promise<void> {
     await this.router.navigate(['/auth/login']);

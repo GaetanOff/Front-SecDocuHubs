@@ -1,6 +1,8 @@
 <section class="bg-gray-100">
   <div class="fixed right-8 bottom-8">
-    <button (click)="toggleModal()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg" onclick="document.getElementById('modal-add-document').classList.remove('hidden')">
+    <button (click)="toggleModal()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg"
+            onclick="document.getElementById('modal-add-document').classList.remove('hidden')">
       Ajouter un document
     </button>
   </div>
@@ -16,7 +18,7 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
         <!-- Search and Filter Bar -->
         <div class="bg-white p-4 shadow rounded-lg mb-6 flex justify-between items-center">
-          <input type="text" placeholder="Rechercher des documents..." class="border p-2 rounded w-full mr-4">
+          <input class="border p-2 rounded w-full mr-4" placeholder="Rechercher des documents..." type="text">
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Rechercher
           </button>
@@ -47,7 +49,7 @@
   </div>
 
   <!-- Modal: Add Document Form -->
-  <div id="modal-add-document" class="fixed z-10 inset-0 overflow-y-auto" *ngIf="showModal">
+  <div *ngIf="showModal" class="fixed z-10 inset-0 overflow-y-auto" id="modal-add-document">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <div class="fixed inset-0 transition-opacity">
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -55,7 +57,9 @@
 
       <!-- This element is to trick the browser into centering the modal contents. -->
       <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
-      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <div
+        aria-labelledby="modal-headline"
+        aria-modal="true" class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog">
         <form class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="sm:flex sm:items-start">
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -63,20 +67,28 @@
                 Ajouter un nouveau document
               </h3>
               <div class="mt-2">
-                <input type="text" name="title" placeholder="Titre du document" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                <textarea name="description" rows="3" placeholder="Description du document" class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
-                <input type="file" name="file" class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" name="title" placeholder="Titre du document"
+                       required
+                       type="text">
+                <textarea class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" name="description" placeholder="Description du document"
+                          rows="3"></textarea>
+                <input class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" name="file"
+                       required
+                       type="file">
               </div>
             </div>
           </div>
           <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
             <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-              <button (click)="toggleModal()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blue-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+              <button (click)="toggleModal()" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-blue-500 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                      type="button">
                 Ajouter
               </button>
             </span>
             <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-              <button (click)="toggleModal()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5" onclick="document.getElementById('modal-add-document').classList.add('hidden')">
+              <button (click)="toggleModal()" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                      onclick="document.getElementById('modal-add-document').classList.add('hidden')"
+                      type="button">
                 Annuler
               </button>
             </span>

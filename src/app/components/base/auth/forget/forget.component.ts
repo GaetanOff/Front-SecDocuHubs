@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../../../services/user/user.service";
 
@@ -9,7 +9,8 @@ import {UserService} from "../../../../services/user/user.service";
   templateUrl: './forget.component.html',
 })
 export class ForgetComponent {
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {
+  }
 
   async processForm(): Promise<void> {
     await this.router.navigate(['/auth/login']);

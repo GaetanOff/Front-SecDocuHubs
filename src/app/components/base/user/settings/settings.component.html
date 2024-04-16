@@ -1,0 +1,105 @@
+<section class="bg-gray-100">
+
+  <div class="py-10">
+    <header>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold leading-tight text-gray-900">Paramètres du compte</h1>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 mt-4">
+        <!-- Personal Information Card -->
+        <div class="bg-white shadow sm:rounded-lg mb-6">
+          <div class="px-4 py-5 sm:p-6">
+            <h2 class="text-lg leading-6 font-medium text-gray-900">Informations personnelles</h2>
+            <form action="#" method="POST">
+              <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                <!-- Fields: First name, Last name, Email, Phone -->
+                <!-- First Name -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700" for="first-name">Prénom</label>
+                  <input autocomplete="given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="first-name" name="first-name"
+                         required
+                         type="text">
+                </div>
+                <!-- Last Name -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700" for="last-name">Nom de famille</label>
+                  <input autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="last-name" name="last-name"
+                         required
+                         type="text">
+                </div>
+                <!-- Email -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+                  <input autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="email" name="email"
+                         required
+                         type="email">
+                </div>
+                <!-- Phone -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700" for="phone">Téléphone</label>
+                  <input autocomplete="tel" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="phone" name="phone"
+                         type="tel">
+                </div>
+                <div class="mt-6 col-span-full">
+                  <button class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          type="submit">
+                    Sauvegarder
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Change Password Card -->
+        <div class="bg-white shadow sm:rounded-lg mb-6">
+          <div class="px-4 py-5 sm:p-6">
+            <h2 class="text-lg leading-6 font-medium text-gray-900">Changer de mot de passe</h2>
+            <form action="#" class="space-y-6" method="POST">
+              <!-- Fields: New Password, Confirm Password -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="new-password">Nouveau mot de passe</label>
+                <input class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="new-password" name="new-password"
+                       required
+                       type="password">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700" for="confirm-password">Confirmer le mot de
+                  passe</label>
+                <input class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" id="confirm-password" name="confirm-password"
+                       required
+                       type="password">
+              </div>
+              <div>
+                <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        type="submit">
+                  Changer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Two-Factor Authentication Card -->
+        <div class="bg-white shadow sm:rounded-lg mb-6">
+          <div class="px-4 py-5 sm:p-6">
+            <h2 class="text-lg leading-6 font-medium text-gray-900">Authentification à deux facteurs (2FA)</h2>
+            <p class="mt-1 text-sm text-gray-600">
+              Ajoutez une couche supplémentaire de sécurité à votre compte en activant l'authentification à deux
+              facteurs.
+            </p>
+            <form action="#" class="mt-4" method="POST">
+              <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                      type="button">
+                Activer 2FA
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</section>

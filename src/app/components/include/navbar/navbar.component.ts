@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from "../../../services/user/user.service";
 import {NgIf} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
@@ -14,10 +14,11 @@ import {NavService} from "../../../services/nav/nav.service";
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
-  constructor(public userService: UserService, private router: Router, public navService: NavService,
-              private elementRef: ElementRef<HTMLElement>) {
-    this.updateCurrentPage();
+  isProfileDropdownOpen: boolean = false;
+  isNotificationsOpen: boolean = false;
+  isMessagesOpen: boolean = false;
 
+  constructor(public userService: UserService, private router: Router, public navService: NavService) {
   }
 
   async logout(): Promise<void> {
@@ -25,7 +26,37 @@ export class NavbarComponent {
     await this.router.navigate(['/']);
   }
 
-  updateCurrentPage(): void {
+  async toggleProfileDropdown(): Promise<void> {
+    await this.closeAll();
+    this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+  }
+
+  async toggleNotifications(): Promise<void> {
+    await this.closeAll();
+    this.isNotificationsOpen = !this.isNotificationsOpen;
+  }
+
+  async toggleMessages(): Promise<void> {
+    await this.closeAll();
+    this.isMessagesOpen = !this.isMessagesOpen;
+  }
+
+  async clickProfileDropdown(where: number): Promise<void> {
+    await this.closeAll();
+
+    switch (where) {
+      case 0:
+        await this.router.navigate(['/user/settings']);
+        break;
+      default:
+        await this.logout();
+    }
+  }
+
+  private async closeAll(): Promise<void> {
+    this.isProfileDropdownOpen = false;
+    this.isNotificationsOpen = false;
+    this.isMessagesOpen = false;
   }
 
 }

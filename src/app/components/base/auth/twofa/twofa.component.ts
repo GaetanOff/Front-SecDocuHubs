@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Route, Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 import {UserService} from "../../../../services/user/user.service";
 
 @Component({
@@ -12,7 +12,8 @@ import {UserService} from "../../../../services/user/user.service";
 })
 export class TwofaComponent {
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {
+  }
 
   async processForm(): Promise<void> {
     this.userService.login();

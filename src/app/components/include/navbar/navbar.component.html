@@ -3,30 +3,96 @@
     <div class="flex justify-between h-16">
       <div class="flex">
         <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-8 w-auto" src="https://placehold.co/600x400" alt="DocSecuHubs">
-          <img class="hidden lg:block h-8 w-auto" src="https://placehold.co/600x400" alt="DocSecuHubs">
+          <img alt="DocSecuHubs" class="block lg:hidden h-8 w-auto" src="https://placehold.co/600x400">
+          <img alt="DocSecuHubs" class="hidden lg:block h-8 w-auto" src="https://placehold.co/600x400">
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-          <a *ngIf="userService.isUserLogged()" routerLink="/user" class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" id="dashboard">
+          <a *ngIf="userService.isUserLogged()" [class.border-indigo-500]="navService.getCurrentPage() === 'dashboard'"
+             class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+             id="dashboard" routerLink="/user">
             Dashboard
           </a>
-          <a *ngIf="userService.isUserLogged()" routerLink="/user/documents" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" id="documents">
+          <a *ngIf="userService.isUserLogged()" [class.border-indigo-500]="navService.getCurrentPage() === 'documents'"
+             class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+             id="documents"
+             routerLink="/user/documents">
             Gestion des Documents
           </a>
-          <a *ngIf="!userService.isUserLogged()" routerLink="" class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" id="home">
+          <a *ngIf="!userService.isUserLogged()" [class.border-indigo-500]="navService.getCurrentPage() === 'home'"
+             class="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+             id="home"
+             routerLink="">
             Accueil
           </a>
         </div>
       </div>
       <div class="flex items-center">
-        <div class="flex-shrink-0">
-          <a *ngIf="userService.isUserLogged()" (click)="logout()" type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-            Se déconnecter
-          </a>
-          <a *ngIf="!userService.isUserLogged()" routerLink="/auth/login" type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+        <div *ngIf="userService.isUserLogged()" class="relative">
+          <!-- Messages Icon Button -->
+          <button
+            (click)="toggleMessages()"
+            class="ml-3 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <span class="sr-only">View messages</span>
+            <i class="fas fa-envelope"></i>
+          </button>
+
+          <!-- Messages Dropdown Menu -->
+          <div *ngIf="isMessagesOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-50">
+            <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              <i class="fas fa-inbox mr-2"></i> Pas de messages.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- Notifications icon -->
+        <div *ngIf="userService.isUserLogged()" class="relative">
+          <button
+            (click)="toggleNotifications()"
+            class="ml-3 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <span class="sr-only">View notifications</span>
+            <i class="fas fa-bell"></i>
+          </button>
+
+          <!-- Notifications Dropdown Menu -->
+          <div *ngIf="isNotificationsOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-50">
+            <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              <i class="fas fa-inbox mr-2"></i> Pas de notifications.
+            </p>
+          </div>
+        </div>
+
+
+        <div *ngIf="userService.isUserLogged()" class="relative">
+          <div (click)="toggleProfileDropdown()" class="ml-3 h-8 w-8 rounded-full">
+            <img alt="Your Name" class="h-8 w-8 rounded-full" src="https://cdn.gaetandev.fr/gaetan/files/Gaetan2.png">
+          </div>
+
+          <div *ngIf="isProfileDropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
+            <ul class="py-1 text-gray-700">
+              <li>
+                <a (click)="clickProfileDropdown(0)"
+                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center">
+                  <i class="fas fa-cog mr-3"></i>Options
+                </a>
+              </li>
+              <li>
+                <a (click)="clickProfileDropdown(-1)"
+                   class="block px-4 py-2 text-sm hover:bg-gray-100 flex items-center cursor-pointer">
+                  <i class="fas fa-sign-out-alt mr-3"></i>Se déconnecter
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div *ngIf="!userService.isUserLogged()" class="flex-shrink-0">
+          <a class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" routerLink="/auth/login"
+             type="button">
             Se connecter
           </a>
-          <a *ngIf="!userService.isUserLogged()" routerLink="/auth/register" type="button" class="ml-1.5 relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+          <a class="ml-1.5 relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" routerLink="/auth/register"
+             type="button">
             S'inscrire
           </a>
         </div>

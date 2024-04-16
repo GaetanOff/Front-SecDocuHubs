@@ -3,10 +3,13 @@
     <h1 class="text-2xl font-semibold text-center text-gray-800 mb-6">Mot de passe oublié</h1>
     <form action="#" method="POST">
       <div class="mb-6">
-        <label for="code" class="block text-sm font-medium text-gray-700">Mail</label>
-        <input type="text" name="code" id="code" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Entrez votre mail">
+        <label class="block text-sm font-medium text-gray-700" for="code">Mail</label>
+        <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="code" name="code"
+               placeholder="Entrez votre mail"
+               type="text">
       </div>
-      <button (click)="processForm()" type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      <button (click)="processForm()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit">
         Vérifier
       </button>
     </form>
