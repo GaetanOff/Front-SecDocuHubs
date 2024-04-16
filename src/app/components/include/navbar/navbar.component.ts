@@ -27,17 +27,23 @@ export class NavbarComponent {
   }
 
   async toggleProfileDropdown(): Promise<void> {
-    await this.closeAll();
+    this.isNotificationsOpen = false;
+    this.isMessagesOpen = false;
+
     this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
   }
 
   async toggleNotifications(): Promise<void> {
-    await this.closeAll();
+    this.isProfileDropdownOpen = false;
+    this.isMessagesOpen = false;
+
     this.isNotificationsOpen = !this.isNotificationsOpen;
   }
 
   async toggleMessages(): Promise<void> {
-    await this.closeAll();
+    this.isProfileDropdownOpen = false;
+    this.isNotificationsOpen = false;
+
     this.isMessagesOpen = !this.isMessagesOpen;
   }
 
@@ -54,9 +60,9 @@ export class NavbarComponent {
   }
 
   private async closeAll(): Promise<void> {
-    this.isProfileDropdownOpen = false;
-    this.isNotificationsOpen = false;
-    this.isMessagesOpen = false;
+    if (this.isProfileDropdownOpen) this.isProfileDropdownOpen = false;
+    if (this.isNotificationsOpen) this.isNotificationsOpen = false;
+    if (this.isMessagesOpen) this.isMessagesOpen = false;
   }
 
 }
