@@ -6,6 +6,7 @@ import {LoginComponent} from "./components/base/auth/login/login.component";
 import {TwofaComponent} from "./components/base/auth/twofa/twofa.component";
 import {AboutComponent} from "./components/base/about/about.component";
 import {DocumentsComponent} from "./components/base/user/documents/documents.component";
+import {ForgetComponent} from "./components/base/auth/forget/forget.component";
 
 export const routes: Routes = [
   {
@@ -19,6 +20,10 @@ export const routes: Routes = [
   {
     path: 'auth/register',
     component: RegisterComponent
+  },
+  {
+    path: 'auth/forget',
+    component: ForgetComponent
   },
   {
     path: 'auth/login',
