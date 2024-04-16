@@ -1,0 +1,43 @@
+<section class="bg-gray-100">
+
+  <!-- Main Content -->
+  <div class="py-10">
+    <header>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold leading-tight text-gray-900">Gestion des documents</h1>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-4">
+        <!-- Search and Filter Bar -->
+        <div class="bg-white p-4 shadow rounded-lg mb-6 flex justify-between items-center">
+          <input type="text" placeholder="Rechercher des documents..." class="border p-2 rounded w-full mr-4">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Rechercher
+          </button>
+        </div>
+
+        <!-- Document Table -->
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+          <ul class="divide-y divide-gray-200">
+            <!-- Repeat this list item for each document -->
+            <li class="p-4 hover:bg-gray-50 cursor-pointer">
+              <div class="flex items-center justify-between">
+                <div class="text-sm font-medium text-gray-900">
+                  Nom du document.pdf
+                </div>
+                <div class="flex">
+                  <button class="text-indigo-600 hover:text-indigo-900 mx-2">Voir</button>
+                  <button class="text-green-600 hover:text-green-900 mx-2">Modifier</button>
+                  <button class="text-yellow-600 hover:text-yellow-900 mx-2">Partager</button>
+                  <button class="text-red-600 hover:text-red-900 mx-2">Supprimer</button>
+                </div>
+              </div>
+            </li>
+            <!-- End of document list item -->
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
