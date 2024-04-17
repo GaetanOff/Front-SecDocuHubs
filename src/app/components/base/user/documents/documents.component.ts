@@ -20,6 +20,9 @@ export class DocumentsComponent {
   showModal: boolean = false;
   showDocument: boolean = false;
   modifyDocument: boolean = false;
+  shareDocument: boolean = false;
+  shareURL: string = '';
+  sharePassword: string = '';
   documentToDisplay: any = null;
   addDocForm = new FormGroup({
     name: new FormControl(''),
@@ -49,6 +52,14 @@ export class DocumentsComponent {
   async toggleModifyDocument(id: number): Promise<void> {
     this.documentToDisplay = this.documentService.getDocuments().find(doc => doc.id === id);
     this.modifyDocument = !this.modifyDocument;
+  }
+
+  async toggleShareDocument(id: number): Promise<void> {
+    //generate random shareUrl
+    this.shareURL = 'https://secudochubs.fr/' + Math.random().toString(36).substring(7) + '/' + Math.random().toString(36).substring(7);
+    //generate random password
+    this.sharePassword = Math.random().toString(36).substring(7);
+    this.shareDocument = !this.shareDocument;
   }
 
   async addDocument(): Promise<void> {
