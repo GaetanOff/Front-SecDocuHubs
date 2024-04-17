@@ -87,12 +87,16 @@
         </div>
 
         <div *ngIf="!userService.isUserLogged()" class="flex-shrink-0">
-          <a class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" routerLink="/auth/login"
-             type="button">
+          <a
+            class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+            routerLink="/auth/login"
+            type="button">
             Se connecter
           </a>
-          <a class="ml-1.5 relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" routerLink="/auth/register"
-             type="button">
+          <a
+            class="ml-1.5 relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+            routerLink="/auth/register"
+            type="button">
             S'inscrire
           </a>
         </div>

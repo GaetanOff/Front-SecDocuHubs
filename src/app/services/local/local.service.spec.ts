@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { LocalService } from './local.service';
+import {LocalService} from './local.service';
 
 describe('LocalService', () => {
   let service: LocalService;

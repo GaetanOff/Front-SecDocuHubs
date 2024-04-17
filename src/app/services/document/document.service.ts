@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {LocalService} from "../local/local.service";
 
 @Injectable({

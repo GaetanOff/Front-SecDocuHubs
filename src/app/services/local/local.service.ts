@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 function getLocalStorage(): Storage {
   return localStorage;
@@ -9,7 +9,8 @@ function getLocalStorage(): Storage {
 })
 export class LocalService {
 
-  constructor() { }
+  constructor() {
+  }
 
   get getLocalStorage(): Storage {
     return getLocalStorage();

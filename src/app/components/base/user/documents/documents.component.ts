@@ -58,7 +58,7 @@ export class DocumentsComponent {
     //generate random shareUrl
     this.shareURL = 'https://secudochubs.fr/' + Math.random().toString(36).substring(7) + '/' + Math.random().toString(36).substring(7);
     //generate random password
-    this.sharePassword = Math.random().toString(36).substring(7);
+    this.sharePassword = 'custom-it-' + Math.random().toString(32).substring(7);
     this.shareDocument = !this.shareDocument;
   }
 
@@ -66,7 +66,11 @@ export class DocumentsComponent {
     if (this.addDocForm.value.name === '' || this.addDocForm.value.description === '') {
       return;
     }
-    this.documentService.addDocument({id: this.documentService.getDocuments().length + 1, name: this.addDocForm.value.name, content: this.addDocForm.value.description});
+    this.documentService.addDocument({
+      id: this.documentService.getDocuments().length + 1,
+      name: this.addDocForm.value.name,
+      content: this.addDocForm.value.description
+    });
     this.addDocForm.reset();
     await this.toggleModal();
   }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 export class NavService {
   private currentPage: string = 'home';
 
-  constructor() { }
+  constructor() {
+  }
 
   setCurrentPage(page: string): void {
     this.currentPage = page;
