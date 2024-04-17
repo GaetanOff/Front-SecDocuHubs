@@ -17,7 +17,10 @@ import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
   templateUrl: './documents.component.html'
 })
 export class DocumentsComponent {
-  showModal = false;
+  showModal: boolean = false;
+  showDocument: boolean = false;
+  modifyDocument: boolean = false;
+  documentToDisplay: any = null;
   addDocForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
@@ -38,6 +41,16 @@ export class DocumentsComponent {
     this.showModal = !this.showModal;
   }
 
+  async toggleDocument(id: number): Promise<void> {
+    this.documentToDisplay = this.documentService.getDocuments().find(doc => doc.id === id);
+    this.showDocument = !this.showDocument;
+  }
+
+  async toggleModifyDocument(id: number): Promise<void> {
+    this.documentToDisplay = this.documentService.getDocuments().find(doc => doc.id === id);
+    this.modifyDocument = !this.modifyDocument;
+  }
+
   async addDocument(): Promise<void> {
     if (this.addDocForm.value.name === '' || this.addDocForm.value.description === '') {
       return;
@@ -50,6 +63,4 @@ export class DocumentsComponent {
   async deleteDocument(id: number): Promise<void> {
     this.documentService.removeDocument(this.documentService.getDocuments().find(doc => doc.id === id));
   }
-
-  protected readonly document = document;
 }

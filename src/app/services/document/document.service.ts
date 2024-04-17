@@ -5,7 +5,7 @@ import {LocalService} from "../local/local.service";
   providedIn: 'root'
 })
 export class DocumentService {
-  private documentsList: any[] = [] // Array of documents
+  private readonly documentsList: any[] = [] // Array of documents
 
   constructor(private localService: LocalService) {
     if (!this.localService.getLocalStorage.getItem('documentsList')) {
